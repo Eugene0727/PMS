@@ -24,7 +24,7 @@ if(isset($_POST['login'])){
 //Test for login sends "Invalid Details" if wrong username/password or account does not exist
     if($ret1>0){
         $_SESSION['vpmsaid']=$ret1['ID'];
-        header('location:superAdminDashboard.php');
+        header('location:dashboard.php');
     }
     else if ($ret2>0) {
         $query = mysqli_query($con,"SELECT * FROM tbladmin");
