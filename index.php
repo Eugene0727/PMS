@@ -16,21 +16,23 @@ if(isset($_POST['login'])){
     $pass = "$password<br>\n";
     $date = "$dateEncoded<br>\n";
     $time = "$timeEncoded<br>\n";
-
+//Credentials Checker
     $queryAdmin = mysqli_query($con,"SELECT ID FROM tbladmin WHERE UserName = '$username' && Password = '$password'");
     $queryCustomer = mysqli_query($con,"SELECT peopleID FROM tblpeoplelist WHERE UserName = '$username' && Password = '$password'");
     $ret1 = mysqli_fetch_array($queryAdmin);
     $ret2 = mysqli_fetch_array($queryCustomer);
-
+//Test for login sends "Invalid Details" if wrong username/password or account does not exist
     if($ret1>0){
         $_SESSION['vpmsaid']=$ret1['ID'];
         header('location:superAdminDashboard.php');
-    }else if ($ret2>0) {
+    }
+    else if ($ret2>0) {
         $query = mysqli_query($con,"SELECT * FROM tbladmin");
         $row = mysqli_num_rows($query);
         $_SESSION['vpmsaid']=$ret2['ID'] + $row;
         header('location:dashboard.php');
-    }else{
+    }
+    else{
         $msg="Invalid Details.";
     }
 
