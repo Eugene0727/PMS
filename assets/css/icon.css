@@ -1,0 +1,18 @@
+.field-icon{
+  float: left;
+  margin-left: 445px;
+  margin-top: -25px;
+ /* position: relative;*/
+  z-index: 2;
+}
+.field-icon1{
+  float: left;
+  margin-left: 680px;
+  margin-top: -25px;
+ /* position: relative;*/
+  z-index: 2;
+}
+/*.container{
+  padding-top: 50px;
+  margin: auto;
+}*/
